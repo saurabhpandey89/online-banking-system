@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: apex-horizon-banking
+    runtime: docker
+    plan: free
+    region: singapore
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: H2_CONSOLE_ENABLED
+        value: true
