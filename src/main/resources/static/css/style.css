@@ -1,0 +1,895 @@
+/* Premium Design System for Online Banking System */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --bg-primary: #0a0f1d;
+    --bg-secondary: #121829;
+    --bg-card: rgba(22, 30, 52, 0.7);
+    --border-color: rgba(255, 255, 255, 0.08);
+    --text-primary: #f3f4f6;
+    --text-secondary: #9ca3af;
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --accent-cyan: #06b6d4;
+    --accent-emerald: #10b981;
+    --accent-rose: #f43f5e;
+    --glass-blur: blur(12px);
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(79, 70, 229, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.1) 0px, transparent 50%);
+    background-attachment: fixed;
+}
+
+/* Glassmorphism Styles */
+.glass-card {
+    background: var(--bg-card);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Custom Buttons */
+.btn-primary-custom {
+    background: linear-gradient(135deg, var(--primary) 0%, #3b82f6 100%);
+    border: none;
+    color: white;
+    font-weight: 500;
+    padding: 10px 24px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px 0 rgba(79, 70, 229, 0.4);
+}
+
+.btn-primary-custom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px 0 rgba(79, 70, 229, 0.6);
+    background: linear-gradient(135deg, var(--primary-hover) 0%, #2563eb 100%);
+    color: white;
+}
+
+.btn-secondary-custom {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    font-weight: 500;
+    padding: 10px 24px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary-custom:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+/* Typography & Links */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, #a78bfa 0%, #06b6d4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Form Controls */
+.form-control-custom, .form-control, .form-select {
+    background-color: rgba(15, 23, 42, 0.75) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    color: #ffffff !important;
+    border-radius: 10px !important;
+    padding: 10px 16px;
+    transition: all 0.25s ease;
+}
+
+.form-control-custom:focus, .form-control:focus, .form-select:focus {
+    background-color: rgba(15, 23, 42, 0.9) !important;
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25) !important;
+    outline: none;
+    color: #ffffff !important;
+}
+
+.form-select option {
+    background-color: #0b1120;
+    color: #ffffff;
+}
+
+.form-label-custom, label {
+    font-weight: 500;
+    font-size: 0.88rem;
+    color: #94a3b8;
+    margin-bottom: 6px;
+}
+
+/* Universal Dark Modal Theme (Matching Loan Modal) */
+.modal-content {
+    background-color: #0b1120 !important;
+    border: 1px solid rgba(255, 255, 255, 0.09) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75) !important;
+    color: #f8fafc !important;
+}
+
+.modal-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    padding: 1.25rem 1.5rem !important;
+}
+
+.modal-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    padding: 1rem 1.5rem !important;
+}
+
+.modal-backdrop.show {
+    opacity: 0.75 !important;
+    backdrop-filter: blur(8px);
+}
+
+/* Unified Summary Box (Like Loan Summary) */
+.fintech-summary-box, .loan-summary-box {
+    background: rgba(15, 23, 42, 0.75) !important;
+    border: 1px solid rgba(255, 255, 255, 0.09) !important;
+    border-radius: 14px !important;
+    padding: 1rem !important;
+}
+
+/* Tenure & Radio Button Pills */
+.btn-check:checked + .btn-outline-secondary {
+    background-color: #334155 !important;
+    border-color: #64748b !important;
+    color: #ffffff !important;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-check + .btn-outline-secondary {
+    background-color: rgba(15, 23, 42, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    color: #94a3b8 !important;
+    border-radius: 10px !important;
+    transition: all 0.2s ease;
+}
+
+.btn-check + .btn-outline-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    color: #f8fafc !important;
+}
+
+/* Range Slider */
+.form-range::-webkit-slider-thumb {
+    background-color: #3b82f6 !important;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.8) !important;
+}
+
+.form-range::-webkit-slider-runnable-track {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 8px !important;
+}
+
+/* Translucent Soft Badges - Never Solid Blocks */
+.badge.bg-success, .badge-soft-success {
+    background-color: rgba(16, 185, 129, 0.18) !important;
+    color: #34d399 !important;
+    border: 1px solid rgba(16, 185, 129, 0.35) !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px;
+    padding: 0.35em 0.7em;
+}
+
+.badge.bg-warning, .badge-soft-warning {
+    background-color: rgba(245, 158, 11, 0.18) !important;
+    color: #fbbf24 !important;
+    border: 1px solid rgba(245, 158, 11, 0.35) !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px;
+    padding: 0.35em 0.7em;
+}
+
+.badge.bg-info, .badge-soft-info {
+    background-color: rgba(6, 182, 212, 0.18) !important;
+    color: #22d3ee !important;
+    border: 1px solid rgba(6, 182, 212, 0.35) !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px;
+    padding: 0.35em 0.7em;
+}
+
+.badge.bg-primary, .badge-soft-primary {
+    background-color: rgba(99, 102, 241, 0.18) !important;
+    color: #a5b4fc !important;
+    border: 1px solid rgba(99, 102, 241, 0.35) !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px;
+    padding: 0.35em 0.7em;
+}
+
+.badge.bg-danger, .badge-soft-danger {
+    background-color: rgba(239, 68, 68, 0.18) !important;
+    color: #f87171 !important;
+    border: 1px solid rgba(239, 68, 68, 0.35) !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px;
+    padding: 0.35em 0.7em;
+}
+
+.badge.bg-secondary, .badge-soft-secondary {
+    background-color: rgba(148, 163, 184, 0.15) !important;
+    color: #cbd5e1 !important;
+    border: 1px solid rgba(148, 163, 184, 0.25) !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px;
+    padding: 0.35em 0.7em;
+}
+
+/* Nav Pills inside Modals (Transfer/Deposit/Withdraw, MPIN/Limits) */
+.nav-pills {
+    background: rgba(15, 23, 42, 0.65);
+    padding: 5px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.nav-pills .nav-link {
+    background-color: transparent !important;
+    border: 1px solid transparent !important;
+    color: #94a3b8 !important;
+    border-radius: 9px !important;
+    font-weight: 500;
+    padding: 8px 16px;
+    transition: all 0.2s ease;
+}
+
+.nav-pills .nav-link:hover {
+    color: #f8fafc !important;
+    background-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+.nav-pills .nav-link.active {
+    background-color: #334155 !important;
+    border-color: #475569 !important;
+    color: #ffffff !important;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Input Groups */
+.input-group-text {
+    background-color: rgba(15, 23, 42, 0.85) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    color: #94a3b8 !important;
+    border-radius: 10px 0 0 10px;
+}
+
+.input-group > .form-control {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+
+/* Modal Icon Badges (Matching Loan Modal bolt icon container) */
+.modal-icon-badge {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.modal-icon-amber {
+    background: rgba(245, 158, 11, 0.15) !important;
+    border: 1px solid rgba(245, 158, 11, 0.35) !important;
+    color: #fbbf24 !important;
+}
+
+.modal-icon-emerald {
+    background: rgba(16, 185, 129, 0.15) !important;
+    border: 1px solid rgba(16, 185, 129, 0.35) !important;
+    color: #34d399 !important;
+}
+
+.modal-icon-blue {
+    background: rgba(59, 130, 246, 0.15) !important;
+    border: 1px solid rgba(59, 130, 246, 0.35) !important;
+    color: #60a5fa !important;
+}
+
+.modal-icon-cyan {
+    background: rgba(6, 182, 212, 0.15) !important;
+    border: 1px solid rgba(6, 182, 212, 0.35) !important;
+    color: #22d3ee !important;
+}
+
+.modal-icon-purple {
+    background: rgba(168, 85, 247, 0.15) !important;
+    border: 1px solid rgba(168, 85, 247, 0.35) !important;
+    color: #c084fc !important;
+}
+
+.modal-icon-rose {
+    background: rgba(244, 63, 94, 0.15) !important;
+    border: 1px solid rgba(244, 63, 94, 0.35) !important;
+    color: #fb7185 !important;
+}
+
+/* Navigation Bar */
+.navbar-custom {
+    background-color: rgba(10, 15, 29, 0.8);
+    backdrop-filter: var(--glass-blur);
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Tables */
+.table-custom {
+    color: var(--text-primary);
+}
+
+.table-custom th {
+    background-color: rgba(255, 255, 255, 0.02) !important;
+    border-bottom: 2px solid var(--border-color) !important;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+}
+
+.table-custom td {
+    background-color: transparent !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    vertical-align: middle;
+}
+
+/* Custom badges */
+.badge-active {
+    background-color: rgba(16, 185, 129, 0.15);
+    color: var(--accent-emerald);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.badge-suspended {
+    background-color: rgba(244, 63, 94, 0.15);
+    color: var(--accent-rose);
+    border: 1px solid rgba(244, 63, 94, 0.3);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+/* Micro-animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+/* Modern Fintech Hub Styles */
+.fintech-action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--text-primary);
+    background: transparent;
+    border: none;
+    padding: 12px 8px;
+    border-radius: 14px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    width: 100%;
+}
+
+.fintech-action-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-3px);
+    color: #fff;
+}
+
+.fintech-action-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.fintech-action-btn:hover .fintech-action-icon {
+    transform: scale(1.08);
+}
+
+.icon-scan { background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: white; }
+.icon-phone { background: linear-gradient(135deg, #10b981, #047857); color: white; }
+.icon-upi { background: linear-gradient(135deg, #8b5cf6, #6d28d9); color: white; }
+.icon-self { background: linear-gradient(135deg, #f59e0b, #d97706); color: white; }
+.icon-bank { background: linear-gradient(135deg, #06b6d4, #0891b2); color: white; }
+.icon-card { background: linear-gradient(135deg, #ec4899, #be185d); color: white; }
+.icon-myqr { background: linear-gradient(135deg, #6366f1, #4338ca); color: white; }
+
+
+.contact-avatar-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    min-width: 72px;
+    transition: transform 0.2s ease;
+}
+
+.contact-avatar-wrapper:hover {
+    transform: translateY(-3px);
+}
+
+.contact-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    margin-bottom: 6px;
+}
+
+/* Feature Banners */
+.banner-loan {
+    background: linear-gradient(135deg, #31104e 0%, #1e1b4b 60%, #0f172a 100%);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner-fd {
+    background: linear-gradient(135deg, #082f49 0%, #0c4a6e 60%, #0f172a 100%);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Virtual RuPay Credit Card */
+.rupay-card {
+    background: linear-gradient(135deg, #1e1e2f 0%, #2d1947 50%, #111827 100%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+}
+
+.rupay-chip {
+    width: 44px;
+    height: 32px;
+    background: linear-gradient(135deg, #ffd700, #ffae19);
+    border-radius: 6px;
+    position: relative;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.rupay-chip::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(0,0,0,0.3);
+}
+
+/* Scratch Card */
+.scratch-card-box {
+    background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.3s ease;
+}
+
+.scratch-card-box:hover {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+/* Utilities Grid Tile */
+.utility-tile {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 16px 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    color: var(--text-primary);
+    display: block;
+}
+
+.utility-tile:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.utility-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+}
+
+/* User Basic Info Hero Card (Top Profile Section) */
+.user-info-hero-card {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.88) 0%, rgba(15, 23, 42, 0.96) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 20px;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.user-hero-avatar {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(79, 70, 229, 0.45);
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    flex-shrink: 0;
+}
+
+.user-info-tile {
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.25s ease;
+    height: 100%;
+}
+
+.user-info-tile:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(79, 70, 229, 0.35);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.info-icon-badge {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.info-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    margin-bottom: 2px;
+    font-weight: 600;
+}
+
+.info-value {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0;
+    word-break: break-word;
+}
+
+.copy-btn-mini {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    padding: 2px 6px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.copy-btn-mini:hover {
+    color: #fff;
+}
+
+.clickable-avatar {
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.clickable-avatar:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px rgba(79, 70, 229, 0.8), 0 0 10px rgba(6, 182, 212, 0.6);
+}
+
+.clickable-avatar .avatar-click-hint {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #10b981;
+    color: #fff;
+    font-size: 0.65rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #0f172a;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+.user-hero-avatar-nav {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.user-hero-avatar-nav:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(79, 70, 229, 0.6);
+}
+
+/* Interactive Profile & Account Tiles */
+.interactive-tile {
+    cursor: pointer !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    user-select: none;
+}
+
+.interactive-tile:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(99, 102, 241, 0.5) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35), 0 0 12px rgba(99, 102, 241, 0.2);
+}
+
+.interactive-tile:active {
+    transform: scale(0.98);
+}
+
+.copy-hint-icon {
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.interactive-tile:hover .copy-hint-icon {
+    opacity: 0.85;
+    transform: scale(1.1);
+}
+
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
+.obs-toast-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 10550;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    pointer-events: none;
+}
+
+.obs-toast-item {
+    background: rgba(15, 23, 42, 0.96);
+    border: 1px solid rgba(6, 182, 212, 0.5);
+    backdrop-filter: blur(16px);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(6, 182, 212, 0.3);
+    animation: obsToastIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes obsToastIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ============================================================ */
+/* Profile Modal Folder Architecture (Your Bank Account & KYC) */
+/* ============================================================ */
+.profile-folder-card {
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.profile-folder-card:hover {
+    border-color: rgba(99, 102, 241, 0.35);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.profile-folder-header {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.8) 100%);
+    padding: 14px 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    transition: background 0.2s ease;
+    user-select: none;
+}
+
+.profile-folder-header:hover {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(20, 30, 50, 0.95) 100%);
+}
+
+.folder-icon-avatar {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.folder-icon-gold {
+    background: rgba(245, 158, 11, 0.16);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.35);
+}
+
+.folder-icon-cyan {
+    background: rgba(6, 182, 212, 0.16);
+    color: #22d3ee;
+    border: 1px solid rgba(6, 182, 212, 0.35);
+}
+
+.folder-icon-purple {
+    background: rgba(168, 85, 247, 0.16);
+    color: #c084fc;
+    border: 1px solid rgba(168, 85, 247, 0.35);
+}
+
+.folder-icon-emerald {
+    background: rgba(16, 185, 129, 0.16);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.folder-icon-blue {
+    background: rgba(59, 130, 246, 0.16);
+    color: #60a5fa;
+    border: 1px solid rgba(59, 130, 246, 0.35);
+}
+
+.folder-icon-red {
+    background: rgba(239, 68, 68, 0.16);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.35);
+}
+
+.folder-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+}
+
+.folder-subtitle {
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 2px;
+}
+
+.folder-chevron-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
+    transition: all 0.2s ease;
+}
+
+.profile-folder-header:hover .folder-chevron-circle {
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.folder-chevron {
+    transition: transform 0.3s ease;
+    font-size: 0.85rem;
+}
+
+.profile-folder-header.collapsed .folder-chevron,
+.profile-folder-header[aria-expanded="false"] .folder-chevron {
+    transform: rotate(-90deg);
+}
+
+.profile-folder-header:not(.collapsed) .folder-chevron,
+.profile-folder-header[aria-expanded="true"] .folder-chevron {
+    transform: rotate(0deg);
+}
+
+.profile-folder-body {
+    padding: 18px;
+    background: rgba(10, 15, 29, 0.35);
+}
+

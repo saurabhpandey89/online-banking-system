@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - Apex Horizon Bank</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom Design CSS -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body class="py-5">
+
+    <div class="container animate-fade-in" style="max-width: 800px;">
+        <div class="text-center mb-4">
+            <a th:href="@{/}" class="d-inline-flex align-items-center gap-2 text-decoration-none mb-3">
+                <i class="fa-solid fa-cube text-gradient fs-2"></i>
+                <span class="fw-bold tracking-tight text-white fs-4">APEX HORIZON</span>
+            </a>
+            <h2 class="fw-bold">Open a Digital Account</h2>
+            <p class="text-secondary">Please fill in the details below to complete your registration</p>
+        </div>
+
+        <div class="glass-card p-4 p-md-5">
+            <!-- Alert for backend error messages -->
+            <div th:if="${error}" class="alert alert-danger border-0 bg-danger bg-opacity-10 text-danger small rounded-3 mb-4" role="alert">
+                <i class="fa-solid fa-circle-exclamation me-2"></i> <span th:text="${error}">An error occurred</span>
+            </div>
+
+            <form th:action="@{/register}" method="post" th:object="${registerRequest}">
+                
+                <!-- Section 1: Credentials -->
+                <h5 class="fw-bold text-gradient mb-3"><i class="fa-solid fa-key me-2"></i>1. Credentials</h5>
+                <div class="row g-3 mb-4">
+                    <div class="col-md-6">
+                        <label for="username" class="form-label-custom">Username</label>
+                        <input type="text" id="username" th:field="*{username}" class="form-control form-control-custom" placeholder="Choose a username" required>
+                        <div class="text-danger small mt-1" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username error</div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="password" class="form-label-custom">Password</label>
+                        <input type="password" id="password" th:field="*{password}" class="form-control form-control-custom" placeholder="Choose a strong password" required>
+                        <div class="text-danger small mt-1" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password error</div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Personal Profile -->
+                <h5 class="fw-bold text-gradient mb-3"><i class="fa-solid fa-user me-2"></i>2. Personal Profile</h5>
+                <div class="row g-3 mb-3">
+                    <div class="col-md-6">
+                        <label for="fullName" class="form-label-custom">Full Name</label>
+                        <input type="text" id="fullName" th:field="*{fullName}" class="form-control form-control-custom" placeholder="As per official documents" required>
+                        <div class="text-danger small mt-1" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}">Full name error</div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email" class="form-label-custom">Email Address</label>
+                        <input type="email" id="email" th:field="*{email}" class="form-control form-control-custom" placeholder="name@domain.com" required>
+                        <div class="text-danger small mt-1" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email error</div>
+                    </div>
+                </div>
+
+                <div class="row g-3 mb-3">
+                    <div class="col-md-6">
+                        <label for="phone" class="form-label-custom">Phone Number</label>
+                        <input type="tel" id="phone" th:field="*{phone}" class="form-control form-control-custom" placeholder="10-digit number" required>
+                        <div class="text-danger small mt-1" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Phone error</div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="dob" class="form-label-custom">Date of Birth</label>
+                        <input type="date" id="dob" th:field="*{dob}" class="form-control form-control-custom" required>
+                        <div class="text-danger small mt-1" th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}">DOB error</div>
+                    </div>
+                </div>
+
+                <div class="row g-3 mb-4">
+                    <div class="col-md-6">
+                        <label for="fatherName" class="form-label-custom">Father's Name</label>
+                        <input type="text" id="fatherName" th:field="*{fatherName}" class="form-control form-control-custom" placeholder="Father's full name">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="motherName" class="form-label-custom">Mother's Name</label>
+                        <input type="text" id="motherName" th:field="*{motherName}" class="form-control form-control-custom" placeholder="Mother's full name">
+                    </div>
+                </div>
+
+                <!-- Section 3: Identity & Address -->
+                <h5 class="fw-bold text-gradient mb-3"><i class="fa-solid fa-address-card me-2"></i>3. Verification & KYC</h5>
+                <div class="row g-3 mb-3">
+                    <div class="col-md-4">
+                        <label for="pan" class="form-label-custom">PAN Card</label>
+                        <input type="text" id="pan" th:field="*{pan}" class="form-control form-control-custom" placeholder="ABCDE1234F" required>
+                        <div class="text-danger small mt-1" th:if="${#fields.hasErrors('pan')}" th:errors="*{pan}">PAN error</div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="aadhar" class="form-label-custom">Aadhar Number</label>
+                        <input type="text" id="aadhar" th:field="*{aadhar}" class="form-control form-control-custom" placeholder="12-digit UID" required>
+                        <div class="text-danger small mt-1" th:if="${#fields.hasErrors('aadhar')}" th:errors="*{aadhar}">Aadhar error</div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="gender" class="form-label-custom">Gender</label>
+                        <select id="gender" th:field="*{gender}" class="form-select form-control-custom" required>
+                            <option value="MALE">Male</option>
+                            <option value="FEMALE">Female</option>
+                            <option value="OTHERS">Others</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label for="address" class="form-label-custom">Permanent Address</label>
+                    <textarea id="address" th:field="*{address}" class="form-control form-control-custom" rows="2" placeholder="Street, City, State, ZIP"></textarea>
+                </div>
+
+                <!-- Section 4: Bank Account Details -->
+                <h5 class="fw-bold text-gradient mb-3"><i class="fa-solid fa-wallet me-2"></i>4. Initial Account Configuration</h5>
+                <div class="row g-3 mb-5">
+                    <div class="col-md-6">
+                        <label for="accountType" class="form-label-custom">Account Type</label>
+                        <select id="accountType" th:field="*{accountType}" class="form-select form-control-custom" required>
+                            <option value="SAVING">Savings Account</option>
+                            <option value="CURRENT">Current Account</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="initialBalance" class="form-label-custom">Initial Deposit (INR)</label>
+                        <input type="number" id="initialBalance" th:field="*{initialBalance}" class="form-control form-control-custom" placeholder="0.00" min="0" step="0.01">
+                        <div class="text-danger small mt-1" th:if="${#fields.hasErrors('initialBalance')}" th:errors="*{initialBalance}">Initial balance error</div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary-custom w-100 py-3 mb-3">Submit Registration</button>
+            </form>
+
+            <div class="text-center">
+                <p class="small text-secondary mb-0">Already registered? 
+                    <a th:href="@{/login}" class="text-white fw-medium text-decoration-none">Sign in here</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.querySelector('form').addEventListener('submit', function() {
+            ['username', 'email', 'phone', 'fullName', 'pan', 'aadhar'].forEach(function(id) {
+                var el = document.getElementById(id);
+                if (el && el.value) el.value = el.value.trim();
+            });
+        });
+    </script>
+</body>
+</html>

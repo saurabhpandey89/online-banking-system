@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Horizon Bank - Premium Digital Banking</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom Design CSS -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom py-3">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                <i class="fa-solid fa-cube text-gradient fs-3"></i>
+                <span class="fw-bold tracking-tight">APEX HORIZON</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center gap-3">
+                    <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                    <li class="nav-item" th:if="${#authorization.expression('isAuthenticated()')}">
+                        <a class="btn btn-primary-custom" th:href="@{/dashboard}">Go to Dashboard</a>
+                    </li>
+                    <li class="nav-item" th:if="${!#authorization.expression('isAuthenticated()')}">
+                        <a class="btn btn-secondary-custom" th:href="@{/login}">Login</a>
+                    </li>
+                    <li class="nav-item" th:if="${!#authorization.expression('isAuthenticated()')}">
+                        <a class="btn btn-primary-custom" th:href="@{/register}">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-secondary-custom d-inline-flex align-items-center gap-2 border-danger border-opacity-50 text-white" th:href="@{/admin}">
+                            <i class="fa-solid fa-user-shield text-danger"></i>
+                            <span>Admin Panel</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="container my-5 py-5 animate-fade-in">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <span class="badge bg-primary bg-opacity-25 text-primary border border-primary border-opacity-50 px-3 py-2 rounded-pill mb-3">
+                    <i class="fa-solid fa-sparkles me-2"></i>Future of Banking
+                </span>
+                <h1 class="display-3 fw-extrabold mb-4 lh-sm">
+                    Banking Reimagined, <br>
+                    <span class="text-gradient">For the Horizon.</span>
+                </h1>
+                <p class="lead text-secondary mb-5">
+                    Experience state-of-the-art secure transactions, real-time balance tracking, and lightning-fast digital transfers. Designed for those who look forward.
+                </p>
+                <div class="d-flex gap-3">
+                    <a th:href="@{/register}" class="btn btn-primary-custom btn-lg">Get Started</a>
+                    <a href="#features" class="btn btn-secondary-custom btn-lg">Learn More</a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <div class="glass-card p-5 position-relative overflow-hidden" style="border-radius: 24px;">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 bg-gradient opacity-10" style="background: linear-gradient(135deg, var(--primary) 0%, var(--accent-cyan) 100%);"></div>
+                    <i class="fa-solid fa-building-columns text-gradient display-1 mb-4"></i>
+                    <h3 class="fw-bold mb-3">Secure H2 Account Ledger</h3>
+                    <p class="text-secondary mb-4">Demo account features include high-precision transaction logs, full ACID compliance, and secure user directories.</p>
+                    <div class="d-flex justify-content-center gap-5 text-center">
+                        <div>
+                            <h4 class="fw-bold mb-1 text-gradient">256-bit</h4>
+                            <p class="small text-secondary mb-0">Encryption</p>
+                        </div>
+                        <div>
+                            <h4 class="fw-bold mb-1 text-gradient">0.0ms</h4>
+                            <p class="small text-secondary mb-0">Transfer Delay</p>
+                        </div>
+                        <div>
+                            <h4 class="fw-bold mb-1 text-gradient">99.9%</h4>
+                            <p class="small text-secondary mb-0">Uptime</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="container py-5 my-5">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold">Built for Reliability & Speed</h2>
+            <p class="text-secondary col-lg-6 mx-auto">Explore the features that power Apex Horizon and make online bank transfers reliable, clean, and fast.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="glass-card p-4 h-100">
+                    <div class="d-inline-flex p-3 rounded-3 bg-primary bg-opacity-10 text-primary mb-4">
+                        <i class="fa-solid fa-shield-halved fs-3 text-gradient"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Role-Based Security</h4>
+                    <p class="text-secondary mb-0">Standard Spring Security implementation covering REST APIs with JWT and UI views with session management.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="glass-card p-4 h-100">
+                    <div class="d-inline-flex p-3 rounded-3 bg-primary bg-opacity-10 text-primary mb-4">
+                        <i class="fa-solid fa-shuffle fs-3 text-gradient"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">ACID Transactions</h4>
+                    <p class="text-secondary mb-0">Pessimistic write locking safeguards source and destination balances from race conditions during transfers.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="glass-card p-4 h-100">
+                    <div class="d-inline-flex p-3 rounded-3 bg-primary bg-opacity-10 text-primary mb-4">
+                        <i class="fa-solid fa-chart-line fs-3 text-gradient"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Admin Dashboard</h4>
+                    <p class="text-secondary mb-0">Unified administration interface for approving profiles, changing account status, and system-wide audits.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-top border-opacity-10 py-4 mt-5" style="border-color: var(--border-color);">
+        <div class="container text-center">
+            <p class="text-secondary mb-0">&copy; 2026 Apex Horizon Bank. All rights reserved. Demo Project.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
